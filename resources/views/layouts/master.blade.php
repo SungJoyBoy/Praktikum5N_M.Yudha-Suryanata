@@ -9,6 +9,9 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
+    <title>INVENTARIS</title>
+    @notifyCss
+
     <title>SB Admin 2 - Dashboard</title>
 
     <!-- Custom fonts for this template-->
@@ -52,6 +55,11 @@
                     <i class="fas fa-fw fa-list"></i>
                     <span>Data Barang</span></a>
             </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="/admin/laporan">
+                    <i class="fas fa-fw fa-file"></i>
+                    <span>Laporan</span></a>
+            </li>  
 
             <!-- Divider -->
             <hr class="sidebar-divider">
@@ -105,7 +113,7 @@
                             </div>
                         </li>
 
-                       
+
                         
 
                         <div class="topbar-divider d-none d-sm-block"></div>
@@ -221,6 +229,8 @@
     <script src="/sbadmin/js/demo/chart-area-demo.js"></script>
     <script src="/sbadmin/js/demo/chart-pie-demo.js"></script>
 
+    <x-notify::notify />
+    @notifyJs
 </body>
 
 </html>
