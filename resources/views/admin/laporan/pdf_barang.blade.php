@@ -7,7 +7,7 @@
     <title>Laporan Barang</title>
 </head>
 <body>
-    <h1>laporan barang</h1>
+    <h1>laporan barang M.Yudha Suryanata</h1>
     <table width="100%" cellpadding="10" cellspacing="0" border=1>
         <tr>
             <th>No</th>
@@ -25,5 +25,10 @@
             </tr>
         @endforeach
     </table>
+    <p style="text-align: right">Banjarmasin, 8 November 2025</p>
+    <p style="text-align: right; width: 620px;">Admin</p>
+    <br>
+    <br>
+    <p style="text-align: right"><b><u>Muhammad Yudha Suryanata</u></b></p>
 </body>
 </html>

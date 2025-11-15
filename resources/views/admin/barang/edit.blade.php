@@ -1,53 +1,35 @@
-<?php
+@extends('layouts.master')
 
-namespace App\Http\Controllers;
-
-use App\Models\Barang;
-use Illuminate\Http\Request;
-
-class AdminController extends Controller
-{
-    public function admin()
-    {
-        return view('admin.beranda');
-    }
-
-    public function barang()
-    {
-        $data = Barang::paginate(2);
-
-        return view('admin.barang.index', compact('data'));
-    }
-
-    public function tambah_barang()
-    {
-        return view('admin.barang.tambah');
-    }
-
-    public function edit_barang($id)
-    {
-        $data = Barang::find($id);
-        return view('admin.barang.edit', compact('data'));
-    }
-
-    public function delete_barang($id)
-    {
-        Barang::find($id)->delete();
-        emotify('success', 'Berhasil Di Hapus');
-        return back();
-    }
-
-    public function simpan_barang(Request $req)
-    {
-        Barang::create($req->all());
-        notify()->success('Berhasil Disimpan');
-        return redirect('/admin/barang');
-    }
-
-    public function update_barang(Request $req, $id)
-    {
-        Barang::find($id)->update($req->all());
-        notify()->info('Berhasil Diupdate');
-        return redirect('/admin/barang');
-    }
-}
+@section('content')
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card shadow">
+            <div class="card-header">
+                <h6 class="m-0 font-weight-bold text-primary">Form Edit</h6>
+            </div>
+            <!-- Card Body -->
+            <div class="card-body">
+                <form method="post" action="/admin/barang/update/{{$data->id}}">
+                    @csrf
+                    <div class="form-group">
+                        Kode Barang
+                        <input type="text" class="form-control" name="kode" required value="{{$data->kode}}">
+                    </div>
+                    <div class="form-group">
+                        Nama Barang
+                        <input type="text" class="form-control" name="nama" required value="{{$data->nama}}">
+                    </div>
+                    <div class="form-group">
+                        Stok
+                        <input type="text" class="form-control" name="stok" required value="{{$data->stok}}">
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary btn-lg"> <i class="fa fa-save"></i> UPDATE</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+    
+@endsection
